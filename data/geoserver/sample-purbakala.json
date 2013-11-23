@@ -1,0 +1,36 @@
+{
+    "_id": "5287f8bf4ad724177fe4c687",
+    "date": "2013-11-17T06:02:04.199Z",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        115.63175,
+        -8.464066667
+      ]
+    },
+    "id": "purbakala.fid--514b10b3_142606439f5_6717",
+    "properties": {
+      "typeName": "msop:purbakala",
+      "id_aktor": null,
+      "website": null,
+      "email": null,
+      "no_telp": null,
+      "kode_pos": null,
+      "nam_obj": "Taman Sukasada Ujung",
+      "id_kotkab": 3606,
+      "alamat": "terletak di Desa Tumbu Kecamatan Karangasem",
+      "biaya": null,
+      "activity": null,
+      "keterangan": "Taman Soekasada Ujung, juga dikenal sebagai Istana Air Ujung atau Taman Ujung, berada di wilayah paling timur Kabupaten Karangasem, di Desa Tumbu, yang berjarak sekitar dua setengah jam dari Kuta. Istana ini dibangun pada tahun 1919 oleh Raja Karangasem terakhir, I Gusti Bagus Jelantik, yang memerintah di Karangasem antara 1909 dan 1945. Letusan Gunung Agung pada tahun 1963 menghancurkan istana air dan semakin rusak akibat gempa bumi besar tahun 1979. Namun pemerintah telah melakukan pemugaran terhadap tempat ini",
+      "jam_operas": null,
+      "id_tipe": 4408,
+      "id_wisata": 4406953
+    },
+    "dist": {
+      "calculated": 340.559634031474,
+      "location": [
+        115.63175,
+        -8.464066667
+      ]
+    }
+  }

@@ -1,0 +1,37 @@
+{
+  "_id": "5287fdc34ad724177fe4dba3",
+  "date": "2013-11-17T06:04:00.932Z",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      118.72810750113526,
+      -8.619459433053967
+    ]
+  },
+  "id": "objek_alam.fid--514b10b3_142606439f5_7b7b",
+  "properties": {
+    "typeName": "msop:objek_alam",
+    "id_aktor": null,
+    "website": null,
+    "email": null,
+    "no_telp": null,
+    "kode_pos": null,
+    "nam_obj": "Doro Kalate",
+    "id_kotkab": 36012,
+    "alamat": null,
+    "biaya": null,
+    "activity": null,
+    "keterangan": null,
+    "jam_operas": null,
+    "id_tipe": 4405,
+    "id_wisata": 4404537
+  },
+  "dist": {
+    "calculated": 0.4674650415774617,
+    "location": [
+      118.72810750113526,
+      -8.619459433053967
+    ]
+  }
+}
+

@@ -1,0 +1,36 @@
+{
+  "_id": "5287f8bf4ad724177fe4c68f",
+  "date": "2013-11-17T06:02:04.919Z",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      118.7249836260268,
+      -8.616607370834329
+    ]
+  },
+  "id": "kontemporer.fid--514b10b3_142606439f5_65fe",
+  "properties": {
+    "typeName": "msop:kontemporer",
+    "id_aktor": null,
+    "website": null,
+    "email": null,
+    "no_telp": null,
+    "kode_pos": null,
+    "nam_obj": "Monumen Perang Ngali",
+    "id_kotkab": 36012,
+    "alamat": null,
+    "biaya": null,
+    "activity": null,
+    "keterangan": null,
+    "jam_operas": null,
+    "id_tipe": 4402,
+    "id_wisata": 4404552
+  },
+  "dist": {
+    "calculated": 0,
+    "location": [
+      118.7249836260268,
+      -8.616607370834329
+    ]
+  }
+}

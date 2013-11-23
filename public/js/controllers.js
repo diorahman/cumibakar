@@ -143,16 +143,33 @@ function EditController($scope, $http, $timeout, $routeParams, basicAuth){
 
   $scope.feature = {}
   $scope.saveLabel = "Save"
+  $scope.lat = -1
+  $scope.lng = -1
+
+  $scope.$watch('lat', function(val) {
+    if($scope.feature.geometry) {
+      $scope.feature.geometry.coordinates[1] = val;  
+      marker.setLatLng([$scope.feature.geometry.coordinates[1], $scope.feature.geometry.coordinates[0]]);
+      map.panTo([$scope.feature.geometry.coordinates[1], $scope.feature.geometry.coordinates[0]]);
+    }
+  })
+
+  $scope.$watch('lng', function(val) {
+    if($scope.feature.geometry) {
+      $scope.feature.geometry.coordinates[0] = val;  
+      marker.setLatLng([$scope.feature.geometry.coordinates[1], $scope.feature.geometry.coordinates[0]]);
+      map.panTo([$scope.feature.geometry.coordinates[1], $scope.feature.geometry.coordinates[0]]);
+    }
+  })
 
   var map, marker, tileLayer, coords, lnglat;
 
   function render(feature){
 
-    $scope.lat = feature.geometry.coordinates[1];
-    $scope.lng = feature.geometry.coordinates[0];
+    $scope.lat = $scope.feature.geometry.coordinates[1];
+    $scope.lng = $scope.feature.geometry.coordinates[0];
 
-    
-    coords = [feature.geometry.coordinates[1], feature.geometry.coordinates[0]];
+    coords = [$scope.feature.geometry.coordinates[1], $scope.feature.geometry.coordinates[0]];
 
     map = map || L.map('map', mapOptions);
     marker =  marker || L.marker(coords, markerOptions).addTo(map).bindPopup("Titik Akuisisi");
@@ -180,6 +197,9 @@ function EditController($scope, $http, $timeout, $routeParams, basicAuth){
   $scope.save = function(){
     $scope.saving = true;
     $scope.saveLabel = "Saving..."
+
+    $scope.feature.geometry.coordinates[1] = $scope.lat
+    $scope.feature.geometry.coordinates[0] = $scope.lng
 
     $http.post("/features/" + $scope.feature.id, $scope.feature)
     .success(function(data, status){

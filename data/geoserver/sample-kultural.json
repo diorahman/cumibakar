@@ -1,0 +1,36 @@
+{
+  "_id": "5287f8c04ad724177fe4c6a5",
+  "date": "2013-11-17T06:02:05.045Z",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      115.4405833,
+      -8.167833333
+    ]
+  },
+  "id": "museum.fid--514b10b3_142606439f5_668e",
+  "properties": {
+    "typeName": "msop:museum",
+    "id_aktor": null,
+    "website": null,
+    "email": null,
+    "no_telp": null,
+    "kode_pos": null,
+    "nam_obj": "Museum Manusia Purba Gilimanuk",
+    "id_kotkab": 3603,
+    "alamat": "Kelurahan Gilimanuk Kec Melaya Kabupaten Jembrana",
+    "biaya": null,
+    "activity": null,
+    "keterangan": "Museum Manusia Purba Gilimanuk, berdiri di lahan seluas 5 hektar, dengan bangunan berlantai tiga. Masing-masing lantai terdapat benda purbakala yg berbeda-beda. Pada lantai satu terdapat sarkofagus dan kerangka manusia purba. Kerangka manusia purba ini ditemui dalam bentuk atau mengambil posisi menyerupai bayi dalam kandungan. Hal ini dikaitkan dengan kepecayaan saat itu dimana kehidupan manusia terdiri dari tiga siklus, yaitu lahir, hidup dan mati. Sedangkan pada lantai dua tersimpan tajak perunggu yang digunakan untuk pertanian dan berburu. Tajak ini beserta manik-manik, gerabah dan kapak, dipakai sebagai bekal untuk berburu. Museum Manusia Purba ini selain dikunjungi untuk penelitian, juga kerap dikunjungi para siswa ketika musim liburan. Tentunya diharapkan masyarakat bisa lebih memberdayakan keberadaan museum ini.",
+    "jam_operas": null,
+    "id_tipe": 4409,
+    "id_wisata": 4406986
+  },
+  "dist": {
+    "calculated": 364.72587352646116,
+    "location": [
+      115.4405833,
+      -8.167833333
+    ]
+  }
+}

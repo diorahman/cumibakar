@@ -1,0 +1,24 @@
+{
+    "_id": "5287f8d24ad724177fe4c9f9",
+    "date": "2013-11-17T06:02:20.912Z",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        117.420502,
+        -8.488672
+      ]
+    },
+    "id": "restaurant.fid--514b10b3_142606439f5_6bef",
+    "properties": {
+      "typeName": "msop:restaurant",
+      "nm_bang": "Warnet 69 and Pizza Rakyat                        ",
+      "id_bangunan": 165828
+    },
+    "dist": {
+      "calculated": 144.14231779838292,
+      "location": [
+        117.420502,
+        -8.488672
+      ]
+    }
+  }

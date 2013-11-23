@@ -1,0 +1,36 @@
+{
+  "_id": "5287f8c14ad724177fe4c6d2",
+  "date": "2013-11-17T06:02:07.258Z",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      119.52306593478002,
+      -8.598661798139362
+    ]
+  },
+  "id": "pantai.fid--514b10b3_142606439f5_6835",
+  "properties": {
+    "typeName": "msop:pantai",
+    "id_aktor": null,
+    "website": null,
+    "email": null,
+    "no_telp": null,
+    "kode_pos": null,
+    "nam_obj": "Pantai Merah",
+    "id_kotkab": 36028,
+    "alamat": null,
+    "biaya": null,
+    "activity": null,
+    "keterangan": null,
+    "jam_operas": null,
+    "id_tipe": 4407,
+    "id_wisata": 4404690
+  },
+  "dist": {
+    "calculated": 87.76581677951039,
+    "location": [
+      119.52306593478002,
+      -8.598661798139362
+    ]
+  }
+}
