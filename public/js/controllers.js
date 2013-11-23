@@ -14,22 +14,21 @@ function MainController($scope, $http, $timeout, basicAuth){
   $scope.features = []
   $scope.success = false;
 
-  $http.get('/features')
-  .success(function(data, status){
-    $scope.features = data;
+  function load(){
+    $http.get('/features')
+    .success(function(data, status){
+      $scope.features = data;
+      $scope.success = true;
 
-    $scope.success = true;
-
-    $timeout(function(){
-      $scope.success = false;
-    }, 1500)
+      $timeout(function(){
+        $scope.success = false;
+      }, 1500)
+    })
+    .error(function(data, status){ console.log("TODO: error")
   })
-  .error(function(data, status){
+  }
 
-    // TODO: error notofication
-
-  })
-  
+  $timeout(load, 500);
 }
 
 function ImageController($scope, $http, $timeout, $routeParams, basicAuth){
@@ -121,17 +120,21 @@ function ImageController($scope, $http, $timeout, $routeParams, basicAuth){
     $scope.failed = false;
   }
 
-  $http.get("/image-meta/" + $routeParams.filename)
-  .success(function(data, status){
+  function load(){
 
-    for(var key in data.metadata) {
-      $scope.image[key] = data.metadata[key]
-    }
+    $http.get("/image-meta/" + $routeParams.filename)
+    .success(function(data, status){
 
-  })
-  .error(function(data, status){
-    console.log("TODO: error")
-  })
+      for(var key in data.metadata) {
+        $scope.image[key] = data.metadata[key]
+      }
+    })
+    .error(function(data, status){
+      console.log("TODO: error")
+    })
+  }
+
+  $timeout(load, 500);
 }
 
 function EditController($scope, $http, $timeout, $routeParams, basicAuth){
@@ -207,27 +210,27 @@ function EditController($scope, $http, $timeout, $routeParams, basicAuth){
     $scope.failed = false;
   }
 
-  $http.get('/features/' + $routeParams.id)
-  .success(function(data, status){
-    $scope.feature = data;
-    render(data);
-  })
-  .error(function(data, status){
+  function load(){
 
-  })
-
-  $http.get('/images/' + $routeParams.id)
-  .success(function(data, status){
-    $scope.images = data;
-    console.log(data)
-  })
-  .error(function(data, status){
-
-  })
-
-  
+    $http.get('/features/' + $routeParams.id)
+    .success(function(data, status){
+      $scope.feature = data;
+      render(data);
+    })
+    .error(function(data, status){
+      console.log("TODO: error");
+    })
 
 
+    $http.get('/images/' + $routeParams.id)
+    .success(function(data, status){
+      $scope.images = data;
+    })
+    .error(function(data, status){
+      console.log("TODO: error"); 
+    })
+  }
 
+  $timeout(load, 500);
   
 }

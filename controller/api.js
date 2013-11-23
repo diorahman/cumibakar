@@ -6,13 +6,6 @@ exports.setGrid = function(grid) {
   gfs = grid;
 }
 
-exports.post = function(req, res) {
-}
-
-exports.save = function(req, res) {
-}
-
-
 function typeName(category){
 
   // sejarah/purbakala -> purbakala 
@@ -75,7 +68,6 @@ exports.update = function(req, res) {
 };
 
 exports.images = function(req, res) {
-  console.log(req.params.id)
   gfs.files.find( { "metadata.featureId": parseInt(req.params.id)}).toArray(function (err, files) {
     res.send(files)
   })
