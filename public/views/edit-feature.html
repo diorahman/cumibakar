@@ -56,7 +56,22 @@
           <div class="row">
             <div class="large-4 columns">
             <label>Category</label>
-            <select ng-model="feature.properties.category">
+            <ul style="list-style-type: none; padding:0; margin:0;">
+              <li><input type="checkbox" ng-model="category[0]" ><label>Purbakala</label></li>
+              <li><input type="checkbox" ng-model="category[1]"><label>Objek Wisata Alam</label></li>
+              <li><input type="checkbox" ng-model="category[2]"><label>Air dan Pantai</label></li>
+              <li><input type="checkbox" ng-model="category[3]"><label>Kontemporer</label></li>
+              <li><input type="checkbox" ng-model="category[4]"><label>Kultural</label></li>
+              <li><input type="checkbox" ng-model="category[5]"><label>Museum</label></li>
+              <li><input type="checkbox" ng-model="category[6]"><label>Kuliner dan Restoran</label></li>
+              <li><input type="checkbox" ng-model="category[7]"><label>Bandara</label></li>
+              <li><input type="checkbox" ng-model="category[8]"><label>Terminal</label></li>
+              <li><input type="checkbox" ng-model="category[9]"><label>Pelabuhan</label></li>
+              <li><input type="checkbox" ng-model="category[10]"><label>Sekunder</label></li>
+            </ul>
+            
+            
+            <!--select ng-model="feature.properties.category">
               <option value="purbakala">Purbakala</option>
               <option value="alam">Objek Wisata Alam</option>
               <option value="air">Air dan Pantai</option>
@@ -68,7 +83,7 @@
               <option value="terminal">Terminal</option>
               <option value="pelabuhan">Pelabuhan</option>
               <option value="sekunder">Sekunder</option>
-            </select>
+            </select-->
             </div>
           </div>
           <div class="row">

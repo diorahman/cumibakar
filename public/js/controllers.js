@@ -146,10 +146,44 @@ function EditController($scope, $http, $timeout, $routeParams, basicAuth){
 
   var map, marker, tileLayer;
 
-  $scope.feature = {}
+  $scope.feature = { properties : {} }
   $scope.saveLabel = "Save"
   $scope.lat = -1
   $scope.lng = -1
+  $scope.category = []
+
+  delete $scope.feature.properties.category;
+
+  var category = ["purbakala", "alam", "air", "kontemporer", "kultural", "museum", "kuliner", "bandara", "terminal", "pelabuhan", "sekunder"];
+  
+  for (var i = 0; i < 11; i++) {
+    $scope.category.push(false);
+  }
+
+
+  function categoryMap(){
+    $scope.feature.properties.categories = $scope.feature.properties.categories || []
+
+    for (var i = 0; i < $scope.feature.properties.categories.length; i++) {
+      var cat = $scope.feature.properties.categories[i]
+      $scope.category[category.indexOf(cat)] = true;
+    }
+  }
+
+  function inverseCategoryMap(val){
+    var selected = []
+    for (var i = 0; i < val.length; i++) {
+      if (val[i]) {
+        selected.push(category[i])
+      }
+    }
+
+    return selected;
+  }
+
+  $scope.$watch('category', function(val){
+    $scope.feature.properties.categories = inverseCategoryMap(val);
+  }, true)
 
   $scope.$watch('lat', function(val) {
     if($scope.feature.geometry) {
@@ -241,6 +275,8 @@ function EditController($scope, $http, $timeout, $routeParams, basicAuth){
     .success(function(data, status){
       $scope.feature = data;
       render(data);
+
+      categoryMap();
     })
     .error(function(data, status){
       console.log("TODO: error");
