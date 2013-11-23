@@ -12,13 +12,21 @@ var markerOptions = { draggable : true }
 function MainController($scope, $http, $timeout, basicAuth){
 
   $scope.features = []
+  $scope.success = false;
 
   $http.get('/features')
   .success(function(data, status){
     $scope.features = data;
-    console.log(data)
+
+    $scope.success = true;
+
+    $timeout(function(){
+      $scope.success = false;
+    }, 1500)
   })
   .error(function(data, status){
+
+    // TODO: error notofication
 
   })
   
