@@ -256,6 +256,6 @@ function EditController($scope, $http, $timeout, $routeParams, basicAuth){
     })
   }
 
-  $timeout(load, 500);
+  $timeout(load, 100);
   
 }
