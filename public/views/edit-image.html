@@ -1,0 +1,67 @@
+<nav class="top-bar" data-topbar>
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="/">Akuisisi</a></h1>
+    </li>
+  </ul>
+</nav>
+
+<header>
+  <div class="row">
+    <div class="large-6 columns">
+      <div>&nbsp;</div>
+      <a class="secondary button small" href="/#/points/{{ image.featureId }}">&#8592; Back</a>
+    </div>
+  </div>
+</header>
+
+<section id="main-content">
+  <div class="row">
+    <div class="large-6 columns">
+      <img ng-src="{{ '/image/' + image.filename }}" />
+    </div>
+    <div class="large-6 columns">
+      <form>
+        <fieldset>
+          <legend>Metadata</legend>
+          <div class="row">
+            <div class="large-12 columns">
+            <label>Title</label>
+            <input type="text" ng-model="image.title" placeholder="Title">
+            </div>
+
+            <div class="large-12 columns">
+            <label>Blurb</label>
+            <input type="text" ng-model="image.blurb" placeholder="Blurb">
+            </div>
+
+            <div class="large-12 columns">
+            <label>Description</label>
+            <textarea type="text" ng-model="image.description" placeholder="Description"></textarea>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="large-6 columns">
+            <ul class="button-group [radius round]">
+              <li><button class="small" ng-disabled="{{ saving }}" ng-click="save()">{{ saveLabel }}</button></li>
+              <li><button class="alert small" ng-hide="image.deleted" ng-disabled="saving" ng-click="del()">Delete</button></li>
+              <li><button class="alert small" ng-show="image.deleted" ng-disabled="saving" ng-click="recover()">Recover</button></li>
+            </ul>
+            </div>
+            <div class="large-6 columns">
+              <div ng-show="success" class="alert-box success radius">
+                Success, bro! Woles bro!
+                <a class="close" ng-click="close()">&times;</a>
+              </div>
+              <div ng-show="failed" class="alert-box alert radius">
+                Woles bro! Ana sing mistake bro!
+                <a class="close" ng-click="close()">&times;</a>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</section>

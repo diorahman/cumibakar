@@ -1,0 +1,133 @@
+<nav class="top-bar" data-topbar>
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="/">Akuisisi</a></h1>
+    </li>
+  </ul>
+</nav>
+
+<header>
+  <div id="map" style="height: 200px;"></div>
+</header>
+
+<section id="main-content">
+  <div class="row">
+    <div class="large-12 columns">
+      <h2>{{ feature.properties.title }}</h2>
+      <h4>{{ feature.properties.subtitle }}</h4>
+      <a target="_blank" href="https://www.google.com/maps/preview#!q={{ lat }}%2C{{ lng }}"><sup>lat: {{ lat }}, lng: {{ lng }}</sup></a>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="large-6 columns">
+      <div>&nbsp;</div>
+      <a class="secondary button small" href="/">&#8592; Back</a>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="large-12 columns">
+      <form>
+        <fieldset>
+          <legend>Metadata</legend>
+          <div class="row">
+            <div class="large-12 columns">
+            <label>Title</label>
+            <input type="text" ng-model="feature.properties.title" placeholder="Title">
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-12 columns">
+            <label>Subtitle</label>
+            <input type="text" ng-model="feature.properties.subtitle" placeholder="Title">
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-4 columns">
+            <label>Category</label>
+            <select ng-model="feature.properties.category">
+              <option value="purbakala">Purbakala</option>
+              <option value="alam">Objek Wisata Alam</option>
+              <option value="air">Air dan Pantai</option>
+              <option value="kontemporer">Kontemporer</option>
+              <option value="kultural">Kultural</option>
+              <option value="museum">Museum</option>
+              <option value="kuliner">Kuliner dan Restaurant</option>
+              <option value="bandara">Bandara</option>
+              <option value="terminal">Terminal</option>
+              <option value="pelabuhan">Pelabuhan</option>
+              <option value="sekunder">Sekunder</option>
+            </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-12 columns">
+            <label>Description</label>
+            <textarea type="text" ng-model="feature.properties.description" placeholder="Description"></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-12 columns">
+            <label>Note</label>
+            <textarea type="text" ng-model="feature.properties.note" placeholder="Note"></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-2 columns">
+            <button class="small" ng-disabled="saving" ng-click="save()">{{ saveLabel }}</button>
+            </div>
+            <div class="large-4 columns">
+              <div ng-show="success" class="alert-box success radius">
+                Success, bro! Woles bro!
+                <a class="close" ng-click="close()">&times;</a>
+              </div>
+              <div ng-show="failed" class="alert-box alert radius">
+                Woles bro! Ana sing mistake bro!
+                <a class="close" ng-click="close()">&times;</a>
+              </div>
+            </div>
+            <div class="large-6 columns">
+              &nbsp;
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="large-12 columns">
+      <form>
+        <fieldset>
+          <legend>Additional Metadata</legend>
+          <div class="row">
+            <div class="large-12 columns">
+              <button class="small">Add</button>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="large-12 columns">
+      <form>
+        <fieldset>
+          <legend>Images</legend>
+          <div class="row">
+            <div class="large-12 columns">
+              <ul class="small-block-grid-3">
+                <li ng-repeat="image in images">
+                  <a href="/#/pictures/{{ feature.id }}/{{ image.filename }}"><img class="th" ng-src="{{ '/image/' + image.filename }}"></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+  
+</section>
