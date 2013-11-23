@@ -33,7 +33,10 @@ function MainController($scope, $http, $timeout, basicAuth){
 
 function ImageController($scope, $http, $timeout, $routeParams, basicAuth){
   
-  $scope.image = {}
+  $scope.image = {
+    featureId :  $routeParams.id,
+    filename : $routeParams.filename
+  }
 
   $scope.saveLabel = "Save"
 
@@ -122,8 +125,7 @@ function ImageController($scope, $http, $timeout, $routeParams, basicAuth){
     $http.get("/image-meta/" + $routeParams.filename)
     .success(function(data, status){
 
-      $scope.image.filename = $routeParams.filename;
-      $scope.featureId = $routeParams.id;
+
 
       for(var key in data.metadata) {
         $scope.image[key] = data.metadata[key]
@@ -135,6 +137,9 @@ function ImageController($scope, $http, $timeout, $routeParams, basicAuth){
   }
 
   $timeout(load, 250);
+
+  var img = $("<img>").attr("src", "/image/" + $routeParams.filename)
+  $("#image-main").append(img);
 }
 
 function EditController($scope, $http, $timeout, $routeParams, basicAuth){
