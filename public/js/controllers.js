@@ -154,12 +154,11 @@ function EditController($scope, $http, $timeout, $routeParams, basicAuth){
 
   delete $scope.feature.properties.category;
 
-  var category = ["purbakala", "alam", "air", "kontemporer", "kultural", "museum", "kuliner", "bandara", "terminal", "pelabuhan", "sekunder"];
+  var category = ["purbakala", "alam", "air", "kontemporer", "kultural", "museum", "kuliner", "bandara", "terminal", "pelabuhan", "belanja", "sekunder"];
   
-  for (var i = 0; i < 11; i++) {
+  for (var i = 0; i < category.length; i++) {
     $scope.category.push(false);
   }
-
 
   function categoryMap(){
     $scope.feature.properties.categories = $scope.feature.properties.categories || []
