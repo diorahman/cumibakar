@@ -146,7 +146,7 @@ exports.featureList = function(req, res) {
 
   Feature.aggregate(geoNear, function(err, features){
 
-    if (err) return res.send(400, { error : err.message);
+    if (err) return res.send(400, { error : err.message} );
     else {
       res.send(features);
     }
