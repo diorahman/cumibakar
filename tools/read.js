@@ -83,5 +83,5 @@ function read(dir, meta){
 for (var i = 0; i < features.length; i++) {
   var feature = features[i];
   if (!parseInt(feature)) continue;
-  read(feature, false);
+  read(feature, true);
 }

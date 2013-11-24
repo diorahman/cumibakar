@@ -2,6 +2,7 @@
 
 var express = require('express');
 var mongoose = require('mongoose');
+var serializer = require('serializer');
 var app = express();
 var Grid = require('gridfs-stream');
 
@@ -13,14 +14,82 @@ setTimeout(function(){
   api.setGrid(gfs);  
 }, 1000)
 
-app.configure(function () {
-  app.use(express.static(__dirname + '/public'))
-  app.use(express.bodyParser());
-  app.use(express.methodOverride());
-  app.use(app.router);  
-});
+// check token
+app.use(function(req, res, next){
+
+  // asking for token, skip
+  if(req.path.indexOf('api') < 0){
+    next();
+
+  }else{
+
+    if(req.query.access_token || req.headers.authorization) {
+
+      if(req.query.access_token){
+        req.token = req.query.access_token
+        return next()
+      }
+
+      if(req.headers.authorization){
+        var temp = req.headers.authorization
+        var tempArr = temp.split(" ")
+        if(tempArr.length == 2){
+          req.token = tempArr[1]
+          return next()
+        }else{
+
+          res.send(400, {
+            meta : 400,
+            error_type : "AuthException",
+            error_messages : "Access token is required"
+          })
+
+        }
+      }
+    }
+    else {
+
+      return res.send(400, {
+        meta : 400,
+        error_type : "AuthException",
+        error_messages : "Access token is required"
+      })
+    }
+  }
+})
+
+app.use(function(req, res, next){
+
+  if(req.token){
+
+    try{
+      
+      var temp = serializer.secureParse(req.token, 'cumi', 'bakar')
+
+      if(typeof temp == 'object'){
+        req.user = temp
+      }
+      next()
+    }
+    catch(e){
+
+      res.send(400, {
+        meta : 400,
+        error_type : "AuthException",
+        error_messages : "Invalid access token"
+      })
+
+    }
+  }else{
+    next()
+  }
+})
+
+app.use(express.static(__dirname + '/public'))
+app.use(express.bodyParser())
 
 var api = require('./controller/api.js');
+var service = require('./controller/service.js');
 
 app.get('/features', api.list)
 app.get('/features/:id', api.show)
@@ -36,9 +105,16 @@ app.post('/image-meta/:filename', api.imageMetaUpdate)
 app.post('/image-del/:filename', api.imageDel)
 app.post('/image-rec/:filename', api.imageRec)
 
-app.listen(3000);
+// users
+app.post('/users/token', service.token)
+app.get('/api/1/me', service.me)
 
+// features
+// category, near, count, max-distance, by me, by user id
+app.get('/api/1/features', service.featureList)
 
+// 
+app.post('/api/1/features', service.featureUpdate)
+app.get('/api/1/features/:id', service.feature)
 
-
-
+app.listen(3000)

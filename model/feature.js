@@ -7,7 +7,9 @@ var FeatureSchema = new Schema({
       "type" : { type : String},
       coordinates : [Number]
     },
-    properties : {}
+    properties : {},
+    _creator : { type: Schema.Types.ObjectId, ref: 'User' }
+    
 });
 
 module.exports = mongoose.model('Feature', FeatureSchema);

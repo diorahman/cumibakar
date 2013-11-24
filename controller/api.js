@@ -128,8 +128,6 @@ exports.imageRec = function(req, res) {
 
 }
 
-
-
 exports.near = function(req, res) {
 
   var latlng = req.query.latlng || "118.7249836260268,-8.616607370834329";
