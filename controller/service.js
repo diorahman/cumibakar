@@ -4,6 +4,8 @@ var request = require('request')
 var serializer = require('serializer')
 var graphApi = "https://graph.facebook.com";
 
+var api = require('./api.js');
+
 function validateFacebookToken(token, callback){
 
   request(graphApi + "/me?access_token=" + token, function(err, res, body){
@@ -168,4 +170,12 @@ exports.feature = function(req, res) {
     res.send(feature)
   })
 
+}
+
+exports.featureImages = function(req, res) {
+  api.images(req, res);
+}
+
+exports.featureImage = function(req, res) {
+  api.image(req, res);
 }

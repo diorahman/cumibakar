@@ -115,6 +115,10 @@ app.get('/api/1/features', service.featureList)
 
 // 
 app.post('/api/1/features', service.featureUpdate)
+
+app.get('/api/1/features/:id/images', service.featureImages)
 app.get('/api/1/features/:id', service.feature)
+app.get('/api/1/images/:filename', service.featureImage)
+
 
 app.listen(3000)
