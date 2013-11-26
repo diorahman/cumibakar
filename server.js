@@ -98,6 +98,7 @@ app.get('/features/:category/near', api.near)
 
 app.get('/images/:id', api.images)
 app.get('/image/:filename', api.image)
+app.get('/thumb/:filename', api.thumb)
 
 app.get('/image-meta/:filename', api.imageMeta)
 app.post('/image-meta/:filename', api.imageMetaUpdate)

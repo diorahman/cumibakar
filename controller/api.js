@@ -2,6 +2,9 @@ var Feature = require('../model/feature.js');
 var _ = require('lodash')
 var gfs;
 
+var spawn = require('child_process').spawn;
+
+
 exports.setGrid = function(grid) {
   gfs = grid;
 }
@@ -75,7 +78,16 @@ exports.images = function(req, res) {
 
 exports.image = function(req, res) {
   var readstream = gfs.createReadStream({ filename : req.params.filename });
+
   readstream.pipe(res);
+}
+
+exports.thumb = function(req, res) {
+  var readstream = gfs.createReadStream({ filename : req.params.filename });
+  var args = ['convert', '-', '-thumbnail', '220x165^', '-gravity', 'center', '-extent', '220x165', '-' ];
+  var p = spawn('/bin/sh', ['-c', args.join(' ') + ' | cat'])
+  readstream.pipe(p.stdin);
+  p.stdout.pipe(res)
 }
 
 exports.imageMeta = function(req, res) {
