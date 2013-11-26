@@ -109,7 +109,7 @@ app.post('/image-rec/:filename', api.imageRec)
 // users
 app.post('/users/token', service.token)
 app.get('/api/1/me', service.me)
-app.post('/api/1/position', service.mePosition)
+app.post('/api/1/me/position', service.mePosition)
 app.get('/api/1/me/around', service.meArround)
 
 // features
