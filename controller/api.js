@@ -85,7 +85,7 @@ exports.image = function(req, res) {
 exports.thumb = function(req, res) {
   var readstream = gfs.createReadStream({ filename : req.params.filename });
   //var args = ['convert', '-', '-thumbnail', '220x165^', '-gravity', 'center', '-extent', '220x165', '-' ];
-  var args = ['convert', '-', '-geometry', 'x200', '-' ];
+  var args = ['convert', '-', '-geometry', 'x300', '-' ];
   var p = spawn('/bin/sh', ['-c', args.join(' ') + ' | cat'])
   readstream.pipe(p.stdin);
   p.stdout.pipe(res)

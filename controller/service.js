@@ -187,9 +187,92 @@ exports.featureImage = function(req, res) {
 }
 
 exports.mePosition = function(req, res) {
-  //User.update(req.user, {})
+
+  var position = req.body.position;
+
+  User.findOne(req.user, function(err, user) {
+    if (err) return res.send(400, { error : err.message })
+    else {
+
+      var pos = position.split(",");
+      user.currentPosition = [parseFloat(pos[0]), parseFloat(pos[1])];
+      user.save(function(err) {
+        if (err) return res.send({ error : err.message})
+        res.send({
+          currentPosition : [parseFloat(pos[0]), parseFloat(pos[1])]
+        })
+      });
+      
+    }
+  })
 }
 
 exports.meArround = function(req, res) {
+  User.findOne(req.user, function(err, user) {
+    if (user) {
 
+      var geoNear = [
+      { $geoNear: 
+        { near: user.currentPosition, 
+          distanceField: "dist.calculated", 
+          maxDistance: 100 / 6371, 
+          query: {}, 
+          includeLocs: "dist.location", 
+          distanceMultiplier : 6371,
+          spherical : true,
+          uniqueDocs: true
+        }
+      }];
+
+      
+
+      User.aggregate(geoNear, function(err, users){
+
+        
+
+    if (err) return res.send(400, { error : err.message} );
+    else {
+
+      var around = []
+      for (var i = 0; i < users.length; i++) {
+        if (users[i].id != user.id)
+        around.push(users[i])
+
+      }
+      res.send(around);
+    }
+  })
+
+
+    }
+
+
+    /*if (user) {
+
+      var geoNear = [
+      { $geoNear: 
+        { near: user.currentPosition, 
+          distanceField: "dist.calculated", 
+          maxDistance: 100 / 6371, 
+          query: {}, 
+          includeLocs: "dist.location", 
+          distanceMultiplier : 6371,
+          spherical : true,
+          uniqueDocs: true
+        }
+      }];
+
+  User.aggregate(geoNear, function(err, users){
+
+    if (err) return res.send(400, { error : err.message} );
+    else {
+      res.send(features);
+    }
+  })
+
+
+
+    }*/
+
+  })
 }
