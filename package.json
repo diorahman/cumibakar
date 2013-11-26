@@ -15,6 +15,8 @@
     "lodash": "~2.3.0",
     "serializer": "0.0.3",
     "gridfs-stream": "~0.4.0",
-    "request" : ""
+    "request": "",
+    "moment": "~2.4.0",
+    "monot": "~0.1.2"
   }
 }

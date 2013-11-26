@@ -116,8 +116,10 @@ exports.featureList = function(req, res) {
   var maxDistance = req.query.dist || 200 
   var num = req.query.num || 10 
 
+  console.log(req.query)
+
   if (categories) {
-    var arr = categories.split("")
+    var arr = categories.split(",")
     var categoriesQuery = []
     for (var i = 0; i < arr.length; i++) {
       var q = { "properties.categories" : arr[i].toLowerCase().trim() }
@@ -178,4 +180,12 @@ exports.featureImages = function(req, res) {
 
 exports.featureImage = function(req, res) {
   api.image(req, res);
+}
+
+exports.mePosition = function(req, res) {
+  //User.update(req.user, {})
+}
+
+exports.meArround = function(req, res) {
+  
 }

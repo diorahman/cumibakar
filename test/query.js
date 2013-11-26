@@ -4,7 +4,7 @@ var User = require('../model/user.js');
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/akuisisi');
 
-var category = ['alam']
+/*var category = ['alam']
 
 var categories = ""
 
@@ -19,4 +19,6 @@ function query(){
 
 }
 
-query();
+query();*/
+
+User.update({ id : '603361880'}, {}, )

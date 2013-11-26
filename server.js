@@ -108,6 +108,8 @@ app.post('/image-rec/:filename', api.imageRec)
 // users
 app.post('/users/token', service.token)
 app.get('/api/1/me', service.me)
+app.get('/api/1/me/position', service.mePosition)
+app.get('/api/1/me/around', service.meArround)
 
 // features
 // category, near, count, max-distance, by me, by user id
@@ -116,8 +118,8 @@ app.get('/api/1/features', service.featureList)
 // 
 app.post('/api/1/features', service.featureUpdate)
 
-app.get('/api/1/features/:id/images', service.featureImages)
 app.get('/api/1/features/:id', service.feature)
+app.get('/api/1/features/:id/images', service.featureImages)
 app.get('/api/1/images/:filename', service.featureImage)
 
 

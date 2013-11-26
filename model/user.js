@@ -5,6 +5,7 @@ var UserSchema = new Schema({
     id : String,
     profile : {},
     timestamp : Date,
+    currentPosition : [Number],
     features : [{ type: Schema.Types.ObjectId, ref: 'Feature' }]
 });
 
