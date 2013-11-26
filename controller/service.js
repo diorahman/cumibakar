@@ -178,6 +178,10 @@ exports.featureImages = function(req, res) {
   api.images(req, res);
 }
 
+exports.featureThumb = function(req, res) {
+  api.thumb(req, res);
+}
+
 exports.featureImage = function(req, res) {
   api.image(req, res);
 }
@@ -187,5 +191,5 @@ exports.mePosition = function(req, res) {
 }
 
 exports.meArround = function(req, res) {
-  
+
 }
