@@ -57,6 +57,9 @@ request(get(types[j]), function(a, b, c){
       var mappedKeys = Object.keys(mapped);
 
       if (mappedKeys.indexOf(k) > -1) {
+        if (mapped[k] == 'address' && feature.properties[k] == 0){
+          console.log(feature.properties)
+        } 
         copied.properties[ mapped[k] ] = feature.properties[k] ? feature.properties[k].trim() : "";
       }
 
@@ -67,7 +70,7 @@ request(get(types[j]), function(a, b, c){
       db.collection('features').update({ "geometry.coordinates" : copied.geometry.coordinates[0]}, copied, {upsert : true}, function(err, result) {
         if (err) throw err;
         if (result) {
-          console.log(count);
+          //console.log(count);
         }
       })
     }
